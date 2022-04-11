@@ -49,7 +49,8 @@ jobs:
                --parameters environmentType=${{ inputs.environmentType }} \
                             reviewApiUrl=${{ inputs.reviewApiUrl }} \
                             reviewApiKey=${{ secrets.reviewApiKey }}
-
+# or do something like this below to use a parameter file: deploy/parameters.${{ inputs.environmentType }}.json
+# instead of passing the parameters to bicep one by one
   deploy:
     needs: validate
     environment: ${{ inputs.environmentType }}
